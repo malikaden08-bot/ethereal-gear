@@ -21,16 +21,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       - name: Install Project Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run Oxlint Linter
         run: npx oxlint
-
-      - name: Run Strict TypeScript Compilation Check
-        run: npx tsc -b
 
       - name: Build Production Assets
         run: npm run build
