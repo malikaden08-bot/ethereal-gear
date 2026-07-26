@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Color Palette */
+    --color-bg-dark: #090a0f;
+    --color-bg-card-dark: rgba(13, 14, 22, 0.85);
+    --color-text-primary: #f5f5f7;
+    --color-text-secondary: #8e8e93;
+    --color-text-charcoal: #1d1d1f;
+    --color-silver: #e5e5ea;
+    --color-accent-violet: #7c3aed;
+    --color-accent-blue: #3b82f6;
+    --color-accent-emerald: #10b981;
+
+    /* Glass Blurs & Opacities */
+    --glass-blur-sm: blur(8px);
+    --glass-blur-md: blur(16px);
+    --glass-blur-lg: blur(28px);
+    --glass-blur-xl: blur(40px);
+
+    /* Specular Borders & Depth */
+    --glass-border-light: 1px solid rgba(255, 255, 255, 0.18);
+    --glass-border-highlight: 1px solid rgba(255, 255, 255, 0.35);
+    --glass-border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+
+    /* Multi-Layered Shadows & Reflections */
+    --glass-shadow-sm: 0 4px 16px 0 rgba(0, 0, 0, 0.25);
+    --glass-shadow-md: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+    --glass-shadow-lg: 0 16px 48px 0 rgba(0, 0, 0, 0.45), inset 0 1.5px 0 0 rgba(255, 255, 255, 0.35);
+    --glass-shadow-glow: 0 0 40px rgba(124, 58, 237, 0.3);
+
+    /* Radii Scale */
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 28px;
+    --radius-xl: 36px;
+    --radius-full: 9999px;
+  }
+}
+
+html {
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch;
+  background-color: #090a0f;
+  color: #f5f5f7;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Google Sans', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Accessibility Focus States */
+*:focus-visible {
+  outline: 2px solid rgba(124, 58, 237, 0.85);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Reduced Motion Guidelines */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Liquid Glass Utilities */
+.glass-nav-dark {
+  background: rgba(9, 10, 15, 0.75);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-card-obsidian {
+  background: linear-gradient(135deg, rgba(18, 19, 28, 0.8) 0%, rgba(10, 11, 16, 0.9) 100%);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+}
+
+.glass-card-subtle {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-input-dark {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.glass-input-dark:focus {
+  border-color: rgba(124, 58, 237, 0.8);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.35);
+}
+
+/* Lens Reflection Highlight */
+.lens-reflection {
+  position: relative;
+  overflow: hidden;
+}
+
+.lens-reflection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.5);
+}
